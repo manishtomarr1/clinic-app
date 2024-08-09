@@ -1,0 +1,59 @@
+<Shell
+     x:Class="MauiApp1.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MauiApp1.Views" 
+    Shell.FlyoutBehavior="Disabled"
+    Title="MauiApp1">
+
+    <ShellContent
+        Title="Login"
+        ContentTemplate="{DataTemplate local:LoginPage}"
+        Route="LoginPage" />
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+    <ShellContent
+        Title="Add New Patient"
+        ContentTemplate="{DataTemplate local:AddNewPatientPage}"
+        Route="AddNewPatientPage" />
+
+    <ShellContent
+        Title="Search Patient"
+        ContentTemplate="{DataTemplate local:SearchPatientPage}"
+        Route="SearchPatientPage" />
+
+    <ShellContent
+        Title="View All Patients"
+        ContentTemplate="{DataTemplate local:ViewAllPatientsPage}"
+        Route="ViewAllPatientsPage" />
+
+
+    <ShellContent
+    Title="Patient Details"
+    ContentTemplate="{DataTemplate local:PatientDetailPage}"
+    Route="PatientDetailPage" />
+
+
+    <ShellContent
+        Title="Patients with Balance Remaining"
+        ContentTemplate="{DataTemplate local:BalanceRemainingPage}"
+        Route="BalanceRemainingPage" />
+
+    <ShellContent 
+        Title="Add Visit"
+        ContentTemplate="{DataTemplate local:AddVisitPage}" 
+        Route="AddVisitPage" />
+
+    <ShellContent 
+     Title="Add Visit"
+     ContentTemplate="{DataTemplate local:VisitsPage}" 
+     Route="VisitsPage" />
+
+
+</Shell>
+    
+    

@@ -1,0 +1,159 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MauiApp1.Views"
+             x:Class="MauiApp1.Views.MainPage"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+
+    <ContentPage.Resources>
+        <Style x:Key="HeaderStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="Margin" Value="20,40,20,20" />
+        </Style>
+
+        <Style x:Key="CardStyle" TargetType="Frame">
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryColor}" />
+            <Setter Property="Padding" Value="20" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            <Setter Property="Margin" Value="10" />
+        </Style>
+
+        <Style x:Key="WideCardStyle" TargetType="Frame" BasedOn="{StaticResource CardStyle}">
+            <Setter Property="WidthRequest" Value="300" />
+            <Setter Property="HeightRequest" Value="120" />
+            <Setter Property="Padding" Value="20,20,20,20" />
+        </Style>
+
+        <Style x:Key="IconStyle" TargetType="Image">
+            <Setter Property="WidthRequest" Value="40" />
+            <Setter Property="HeightRequest" Value="40" />
+            <Setter Property="Margin" Value="10,0" />
+        </Style>
+
+        <Style x:Key="LabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="LineBreakMode" Value="WordWrap" />
+            <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <!-- Doctor Dashboard Header -->
+            <Label Text="Doctor Dashboard" Style="{StaticResource HeaderStyle}" />
+
+            <!-- Cards for Ongoing Patients, Appointments This Week, and Appointments Today -->
+            <Grid RowDefinitions="Auto" ColumnDefinitions="*,*,*" Padding="0">
+                <!-- Ongoing Patients -->
+                <Frame Style="{StaticResource CardStyle}" Grid.Column="0">
+                    <Grid>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnViewAllPatientsClicked" />
+                        </Grid.GestureRecognizers>
+                        <StackLayout Orientation="Vertical" HorizontalOptions="Center">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                <Label Text="Ongoing Patients" Style="{StaticResource LabelStyle}" VerticalOptions="Center" />
+                                <Image Source="ongoing.png" Style="{StaticResource IconStyle}" VerticalOptions="Center" />
+                            </StackLayout>
+                            <Label x:Name="OngoingPatientsCounter" Text="0" FontSize="36" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" />
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+
+                <!-- Appointments This Week -->
+                <Frame Style="{StaticResource CardStyle}" Grid.Column="1">
+                    <Grid>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnAppointmentsThisWeekClicked" />
+                        </Grid.GestureRecognizers>
+                        <StackLayout Orientation="Vertical" HorizontalOptions="Center">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                <Label Text="Appointments This Week" Style="{StaticResource LabelStyle}" VerticalOptions="Center" />
+                                <Image Source="thisweek.png" Style="{StaticResource IconStyle}" VerticalOptions="Center" />
+                            </StackLayout>
+                            <Label x:Name="AppointmentsThisWeekCounter" Text="0" FontSize="36" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" />
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+
+                <!-- Appointments Today -->
+                <Frame Style="{StaticResource CardStyle}" Grid.Column="2">
+                    <Grid>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnAppointmentsTodayClicked" />
+                        </Grid.GestureRecognizers>
+                        <StackLayout Orientation="Vertical" HorizontalOptions="Center">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                <Label Text="Appointments Today" Style="{StaticResource LabelStyle}" VerticalOptions="Center" />
+                                <Image Source="appointment.png" Style="{StaticResource IconStyle}" VerticalOptions="Center" />
+                            </StackLayout>
+                            <Label x:Name="AppointmentsTodayCounter" Text="0" FontSize="36" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" />
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+            </Grid>
+
+            <!-- Cards for Add New Patient, Search Patient, and View Patients with Balance Remaining -->
+            <Grid RowDefinitions="Auto" ColumnDefinitions="*,*,*" Padding="0">
+                <Frame Style="{StaticResource WideCardStyle}" Grid.Column="0">
+                    <Grid>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnAddNewPatientClicked" />
+                        </Grid.GestureRecognizers>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                            <Image Source="addnew.png" Style="{StaticResource IconStyle}" VerticalOptions="Center" />
+                            <Label Text="Add New Patient" Style="{StaticResource LabelStyle}" VerticalOptions="Center" />
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+
+                <Frame Style="{StaticResource WideCardStyle}" Grid.Column="1">
+                    <Grid>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnSearchPatientClicked" />
+                        </Grid.GestureRecognizers>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                            <Image Source="search.png" Style="{StaticResource IconStyle}" VerticalOptions="Center" />
+                            <Label Text="Search Patient" Style="{StaticResource LabelStyle}" VerticalOptions="Center" />
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+
+                <Frame Style="{StaticResource WideCardStyle}" Grid.Column="2">
+                    <Grid>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnViewBalanceRemainingClicked" />
+                        </Grid.GestureRecognizers>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                            <Image Source="balance.png" Style="{StaticResource IconStyle}" VerticalOptions="Center" />
+                            <Label Text="View Patients with Balance Remaining" Style="{StaticResource LabelStyle}" VerticalOptions="Center" />
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+            </Grid>
+
+            <!-- Logout Button -->
+            <Frame Style="{StaticResource WideCardStyle}" HorizontalOptions="Center">
+                <Grid>
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnLogoutClicked" />
+                    </Grid.GestureRecognizers>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Image Source="logout.png" Style="{StaticResource IconStyle}" VerticalOptions="Center" />
+                        <Label Text="Logout" Style="{StaticResource LabelStyle}" VerticalOptions="Center" />
+                    </StackLayout>
+                </Grid>
+            </Frame>
+
+            <!-- Modal Popup --><!--
+            <local:ModalPopup x:Name="ModalPopup" IsVisible="False" />-->
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

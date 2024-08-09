@@ -1,0 +1,10 @@
+﻿# Ignore appsettings.json files
+appsettings*.json
+
+# Ignore user-specific files
+*.user
+*.userosscache
+*.sln.docstates
+*.db
+*.log
+.vs/

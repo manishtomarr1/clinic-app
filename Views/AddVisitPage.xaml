@@ -1,0 +1,66 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.Views.AddVisitPage"
+             Title="Add New Visit"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <!-- Visit Date -->
+            <Label Text="Visit Date:" FontSize="18" FontAttributes="Bold" TextColor="#555" />
+            <DatePicker x:Name="VisitDatePicker"
+                        Date="{Binding VisitDate}"
+                        TextColor="#333"
+                        BackgroundColor="#F5F5F5"
+                        HeightRequest="50"
+                        Margin="0,0,0,20"
+                        VerticalOptions="Center" />
+
+            <!-- Visit Time -->
+            <Label Text="Visit Time:" FontSize="18" FontAttributes="Bold" TextColor="#555" />
+            <TimePicker x:Name="VisitTimePicker"
+                        Time="{Binding VisitTime}"
+                        TextColor="#333"
+                        BackgroundColor="#F5F5F5"
+                        HeightRequest="50"
+                        Margin="0,0,0,20"
+                        VerticalOptions="Center" />
+
+            <!-- Medicines Prescribed -->
+            <Label Text="Medicines Prescribed:" FontSize="18" FontAttributes="Bold" TextColor="#555" />
+            <Editor x:Name="MedicinesEditor"
+                    Placeholder="Enter Medicines Prescribed"
+                    Text="{Binding MedicinesPrescribed}"
+                    AutoSize="TextChanges"
+                    HeightRequest="100"
+                    BackgroundColor="#F5F5F5"
+                    TextColor="#333"
+                    Margin="0,0,0,20" />
+
+            <!-- Balance Amount -->
+            <Label Text="Balance Amount:" FontSize="18" FontAttributes="Bold" TextColor="#555" />
+            <Entry x:Name="BalanceEntry"
+                   Placeholder="Enter Balance Amount"
+                   Keyboard="Numeric"
+                   Text="{Binding BalanceAmount}"
+                   BackgroundColor="#F5F5F5"
+                   TextColor="#333"
+                   HeightRequest="50"
+                   Margin="0,0,0,20" />
+
+            <!-- Save Visit Button -->
+            <Button Text="Save Visit"
+                    BackgroundColor="#007AFF"
+                    TextColor="White"
+                    CornerRadius="10"
+                    FontAttributes="Bold"
+                    Padding="15,10"
+                    FontSize="18"
+                    HeightRequest="50"
+                    HorizontalOptions="FillAndExpand"
+                    Clicked="OnSaveVisitClicked" />
+            <!-- Wire the event handler here -->
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,193 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.Views.SearchPatientPage"
+             Title="Search Patient"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+
+    <ContentPage.Resources>
+        <!-- Define reusable colors and styles -->
+        <Color x:Key="PrimaryColor">#1976D2</Color>
+        <Color x:Key="LightBlueColor">#E3F2FD</Color>
+        <Color x:Key="PrimaryTextColor">#000000</Color>
+        <!-- Changed to Black -->
+        <Color x:Key="SecondaryTextColor">#666666</Color>
+        <Color x:Key="ButtonBackgroundColor">#1976D2</Color>
+        <Color x:Key="EntryBackgroundColor">#FFFFFF</Color>
+        <Color x:Key="PlaceholderColor">#B0BEC5</Color>
+
+        <!-- Styles for various elements -->
+        <Style x:Key="PageTitleStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="28" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="Margin" Value="0,0,0,20" />
+        </Style>
+
+        <Style x:Key="EntryFrameStyle" TargetType="Frame">
+            <Setter Property="BackgroundColor" Value="{StaticResource EntryBackgroundColor}" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="HasShadow" Value="False" />
+        </Style>
+
+        <Style x:Key="SearchButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="BackgroundColor" Value="{StaticResource ButtonBackgroundColor}" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="WidthRequest" Value="100" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="HeightRequest" Value="40" />
+        </Style>
+
+        <Style x:Key="CardFrameStyle" TargetType="Frame">
+            <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor}" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="Padding" Value="20" />
+            <Setter Property="Margin" Value="0,10" />
+            <Setter Property="HasShadow" Value="True" />
+        </Style>
+
+        <Style x:Key="ResultCardFrameStyle" TargetType="Frame">
+            <Setter Property="BackgroundColor" Value="{StaticResource LightBlueColor}" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="Padding" Value="15" />
+            <Setter Property="Margin" Value="0,10" />
+            <Setter Property="HasShadow" Value="True" />
+        </Style>
+
+        <Style x:Key="CardLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}" />
+        </Style>
+
+        <Style x:Key="SecondaryCardLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <!-- Page Title -->
+            <Label Text="Search for a Patient" Style="{StaticResource PageTitleStyle}" />
+
+            <!-- Search Options Card -->
+            <Frame Style="{StaticResource CardFrameStyle}">
+                <Grid ColumnDefinitions="*,*,Auto" RowDefinitions="Auto,Auto">
+                    <!-- Label for Search by Name -->
+                    <Label Text="Search by Name" 
+                           Grid.Column="0" 
+                           Grid.Row="0"
+                           TextColor="{StaticResource PrimaryTextColor}" 
+                           Margin="0,0,0,5" 
+                           VerticalOptions="End" />
+
+                    <!-- Label for Search by Date -->
+                    <Label Text="Search by Date" 
+                           Grid.Column="1" 
+                           Grid.Row="0"
+                           TextColor="{StaticResource PrimaryTextColor}" 
+                           Margin="0,0,0,5" 
+                           VerticalOptions="End" />
+
+                    <!-- Search by Name Entry -->
+                    <Frame Grid.Column="0" Grid.Row="1" Style="{StaticResource EntryFrameStyle}" Margin="0,0,10,0">
+                        <Entry x:Name="SearchEntry"
+                               Placeholder="Enter Patient Name"
+                               BackgroundColor="{StaticResource EntryBackgroundColor}"
+                               TextColor="{StaticResource PrimaryTextColor}"
+                               PlaceholderColor="{StaticResource PlaceholderColor}"
+                               VerticalOptions="Center" />
+                    </Frame>
+
+                    <!-- Search by Date Picker -->
+                    <Frame Grid.Column="1" Grid.Row="1" Style="{StaticResource EntryFrameStyle}">
+                        <DatePicker x:Name="SearchDatePicker"
+                                    BackgroundColor="{StaticResource EntryBackgroundColor}"
+                                    TextColor="{StaticResource PrimaryTextColor}"
+                                    VerticalOptions="Center" />
+                    </Frame>
+
+                    <!-- Search Icon -->
+                    <Image Grid.Column="2" Grid.RowSpan="2"
+                           Source="searchpat"
+                           HeightRequest="60"
+                           WidthRequest="60"
+                           VerticalOptions="Center"
+                           HorizontalOptions="End"
+                           Margin="10,0,0,0" />
+                </Grid>
+            </Frame>
+
+            <!-- Search Button -->
+            <Button Text="Search"
+                    Style="{StaticResource SearchButtonStyle}"
+                    Clicked="OnSearchClicked"
+                    HorizontalOptions="Center" />
+
+            <!-- Results List -->
+            <CollectionView x:Name="PatientsCollectionView" Margin="0,20,0,0">
+                <CollectionView.EmptyView>
+                    <!-- No patients found message -->
+                    <Label x:Name="NoPatientsFoundLabel"
+                           Text="No patients found. Please try a different search criteria."
+                           FontSize="18"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           TextColor="{StaticResource SecondaryTextColor}"
+                           IsVisible="False"/>
+                </CollectionView.EmptyView>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Style="{StaticResource ResultCardFrameStyle}">
+                            <VerticalStackLayout Spacing="8">
+                                <Label Text="{Binding Name}"
+                                       Style="{StaticResource CardLabelStyle}"
+                                       FontAttributes="Bold" />
+
+                                <!-- Last Visit Date in dd/MM/yy format -->
+                                <Label Text="{Binding LastVisit, StringFormat='Last Visit: {0:dd/MM/yy}'}"
+                                       Style="{StaticResource SecondaryCardLabelStyle}" />
+
+                                <Label Text="{Binding BalanceAmount, StringFormat='Due Amount: {0:C}'}"
+                                       Style="{StaticResource SecondaryCardLabelStyle}"
+                                       TextColor="Red" />
+
+                                <!-- Next Appointment Date in dd/MM/yy format -->
+                                <Label Text="{Binding NextAppointmentDate, StringFormat='Next Appointment: {0:dd/MM/yy}'}"
+                                       Style="{StaticResource SecondaryCardLabelStyle}" />
+
+                                <HorizontalStackLayout Spacing="10">
+                                    <BoxView WidthRequest="12"
+                                             HeightRequest="12"
+                                             Color="{Binding TreatmentStatusColor}"
+                                             CornerRadius="6"
+                                             VerticalOptions="Center" />
+                                    <Label Text="{Binding TreatmentStatus}"
+                                           Style="{StaticResource SecondaryCardLabelStyle}"
+                                           VerticalOptions="Center" />
+                                </HorizontalStackLayout>
+
+                                <Button Text="View Details"
+        Clicked="OnViewDetailsClicked"
+        CommandParameter="{Binding .}"
+        Style="{StaticResource SearchButtonStyle}"
+        HorizontalOptions="End"
+        WidthRequest="150"
+        Padding="10,5"
+        TextTransform="None"
+        FontSize="16"/>
+
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

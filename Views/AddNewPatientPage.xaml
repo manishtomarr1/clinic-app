@@ -1,0 +1,127 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.Views.AddNewPatientPage"
+             Title="Add New Patient"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+
+    <ContentPage.Resources>
+        <Style x:Key="HeaderStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="28" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="Margin" Value="0,20,0,10" />
+        </Style>
+
+        <Style x:Key="EntryStyle" TargetType="Entry">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+            <Setter Property="BackgroundColor" Value="{DynamicResource EntryBackgroundColor}" />
+            <Setter Property="Margin" Value="0,5,0,10" />
+            <Setter Property="HeightRequest" Value="40" />
+        </Style>
+
+        <Style x:Key="EditorStyle" TargetType="Editor">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+            <Setter Property="BackgroundColor" Value="{DynamicResource EntryBackgroundColor}" />
+            <Setter Property="Margin" Value="0,5,0,10" />
+            <Setter Property="HeightRequest" Value="80" />
+        </Style>
+
+        <Style x:Key="PickerStyle" TargetType="Picker">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+            <Setter Property="BackgroundColor" Value="{DynamicResource EntryBackgroundColor}" />
+            <Setter Property="Margin" Value="0,5,0,10" />
+            <Setter Property="HeightRequest" Value="40" />
+        </Style>
+
+        <Style x:Key="LabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+            <Setter Property="Margin" Value="0,10,0,5" />
+        </Style>
+
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="BackgroundColor" Value="{DynamicResource ButtonBackgroundColor}" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="Margin" Value="10,0" />
+            <Setter Property="Padding" Value="20,10" />
+            <Setter Property="HeightRequest" Value="50" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <!-- Page Header -->
+            <Label Text="Add New Patient" Style="{StaticResource HeaderStyle}" />
+
+            <!-- Patient Name -->
+            <Entry x:Name="NameEntry" Placeholder="Name" Style="{StaticResource EntryStyle}" />
+
+            <!-- Age -->
+            <Entry x:Name="AgeEntry" Placeholder="Age" Keyboard="Numeric" Style="{StaticResource EntryStyle}" />
+
+            <!-- Date of Visit -->
+            <Label Text="Date of Visit" Style="{StaticResource LabelStyle}" />
+            <DatePicker x:Name="VisitDatePicker" Style="{StaticResource PickerStyle}" />
+
+            <!-- Time of Visit -->
+            <Label Text="Time of Visit" Style="{StaticResource LabelStyle}" />
+            <TimePicker x:Name="VisitTimePicker" Style="{StaticResource PickerStyle}" />
+
+            <!-- Address -->
+            <Editor x:Name="AddressEntry" Placeholder="Address" Style="{StaticResource EditorStyle}" AutoSize="TextChanges" />
+
+            <!-- Mobile Number -->
+            <Entry x:Name="MobileNumberEntry" Placeholder="Mobile Number" Keyboard="Telephone" Style="{StaticResource EntryStyle}" />
+
+            <!-- Medicines Prescribed -->
+            <Editor x:Name="MedicinesEntry" Placeholder="Medicines Prescribed" Style="{StaticResource EditorStyle}" AutoSize="TextChanges" />
+
+            <!-- Next Appointment Date -->
+            <Label Text="Next Appointment Date" Style="{StaticResource LabelStyle}" />
+            <DatePicker x:Name="NextAppointmentDatePicker" Style="{StaticResource PickerStyle}" />
+
+            <!-- Treatment Status -->
+            <Label Text="Treatment Status" Style="{StaticResource LabelStyle}" />
+            <Picker x:Name="TreatmentStatusPicker" Title="Treatment Status" Style="{StaticResource PickerStyle}" SelectedItem="Ongoing">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Ongoing</x:String>
+                        <x:String>Completed</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+
+            <!-- Balance Amount -->
+            <Entry x:Name="BalanceEntry" Placeholder="Balance Amount" Keyboard="Numeric" Style="{StaticResource EntryStyle}" />
+
+            <!-- Buttons -->
+            <Grid ColumnSpacing="15" Padding="0,10,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Text="Save" Style="{StaticResource ButtonStyle}" Grid.Column="0">
+                    <Button.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSaveClicked" />
+                    </Button.GestureRecognizers>
+                </Button>
+
+                <Button Text="Cancel" Style="{StaticResource ButtonStyle}" Grid.Column="1">
+                    <Button.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCancelClicked" />
+                    </Button.GestureRecognizers>
+                </Button>
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

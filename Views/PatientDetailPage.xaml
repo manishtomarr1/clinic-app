@@ -1,0 +1,127 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.Views.PatientDetailPage"
+             Title="Patient Details"
+             BackgroundColor="White">
+
+    <ContentPage.Resources>
+        <!-- Define reusable colors -->
+        <Color x:Key="PrimaryColor">#007AFF</Color>
+        <Color x:Key="SecondaryColor">#F5F5F5</Color>
+        <Color x:Key="PrimaryTextColor">#333333</Color>
+        <Color x:Key="SecondaryTextColor">#555555</Color>
+        <Color x:Key="OngoingColor">#28A745</Color>
+        <Color x:Key="CompletedColor">#FFA500</Color>
+
+        <!-- Styles for Labels -->
+        <Style x:Key="HeaderLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="28" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+        </Style>
+
+        <Style x:Key="SectionHeaderLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}" />
+            <Setter Property="Margin" Value="0,10,0,5" />
+        </Style>
+
+        <Style x:Key="DetailLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}" />
+        </Style>
+
+        <Style x:Key="TreatmentStatusLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}" />
+            <Style.Triggers>
+                <DataTrigger TargetType="Label" Binding="{Binding TreatmentStatus}" Value="Ongoing">
+                    <Setter Property="TextColor" Value="{StaticResource OngoingColor}" />
+                </DataTrigger>
+                <DataTrigger TargetType="Label" Binding="{Binding TreatmentStatus}" Value="Completed">
+                    <Setter Property="TextColor" Value="{StaticResource CompletedColor}" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor}" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="Padding" Value="15,10" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="Margin" Value="0,5" />
+        </Style>
+
+        <Style x:Key="FrameStyle" TargetType="Frame">
+            <Setter Property="BackgroundColor" Value="{StaticResource SecondaryColor}" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="Padding" Value="15" />
+            <Setter Property="Margin" Value="0,10" />
+            <Setter Property="HasShadow" Value="True" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <!-- Page Header -->
+            <Label Text="Patient Details" Style="{StaticResource HeaderLabelStyle}" />
+
+            <!-- Patient Information -->
+            <Frame Style="{StaticResource FrameStyle}">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Name:" Style="{StaticResource SectionHeaderLabelStyle}" />
+                    <Label Text="{Binding Name}" Style="{StaticResource DetailLabelStyle}" />
+
+                    <Label Text="Age:" Style="{StaticResource SectionHeaderLabelStyle}" />
+                    <Label Text="{Binding Age}" Style="{StaticResource DetailLabelStyle}" />
+
+                    <Label Text="Address:" Style="{StaticResource SectionHeaderLabelStyle}" />
+                    <Label Text="{Binding Address}" Style="{StaticResource DetailLabelStyle}" />
+
+                    <Label Text="Mobile Number:" Style="{StaticResource SectionHeaderLabelStyle}" />
+                    <Label Text="{Binding MobileNumber}" Style="{StaticResource DetailLabelStyle}" />
+
+                    <!-- Treatment Status -->
+                    <Label Text="Treatment Status:" Style="{StaticResource SectionHeaderLabelStyle}" />
+                    <Label Text="{Binding TreatmentStatus}" Style="{StaticResource TreatmentStatusLabelStyle}" />
+
+                    <Label Text="Balance Amount:" Style="{StaticResource SectionHeaderLabelStyle}" />
+                    <Label Text="{Binding BalanceAmount, StringFormat='{}{0:C}'}" Style="{StaticResource DetailLabelStyle}" TextColor="Red" />
+
+                    <Label Text="Last Visit:" Style="{StaticResource SectionHeaderLabelStyle}" />
+                    <Label Text="{Binding LastVisit, StringFormat='{}{0:dd/MM/yy}'}" Style="{StaticResource DetailLabelStyle}" />
+
+                    <Label Text="Next Appointment:" Style="{StaticResource SectionHeaderLabelStyle}" />
+                    <Label Text="{Binding NextAppointmentDate, StringFormat='{}{0:dd/MM/yy}'}" Style="{StaticResource DetailLabelStyle}" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Button to open All Visits Modal -->
+            <Button Text="View All Visits" 
+                    Style="{StaticResource ButtonStyle}" 
+                    Clicked="OnViewAllVisitsClicked" />
+
+            <!-- Button to Add a New Visit -->
+            <Button Text="Add New Visit" 
+                    Style="{StaticResource ButtonStyle}" 
+                    Clicked="OnAddVisitClicked" />
+
+            <!-- Button to Mark Treatment as Completed -->
+            <Button Text="Mark as Completed"
+                    Style="{StaticResource ButtonStyle}"
+                    BackgroundColor="{StaticResource CompletedColor}"
+                    Clicked="OnCompleteTreatmentClicked" />
+
+            <!-- Button to Delete Patient -->
+            <Button Text="Delete Patient"
+                    Style="{StaticResource ButtonStyle}"
+                    BackgroundColor="Red"
+                    Clicked="OnDeletePatientClicked" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
