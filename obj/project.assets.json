@@ -61661,24 +61661,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\manish.tomar\\.nuget\\packages\\": {},
+    "C:\\Users\\manis\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\manish.tomar\\Desktop\\MAUI\\MauiApp1\\MauiApp1.csproj",
+      "projectUniqueName": "C:\\Users\\manis\\Downloads\\MauiApp1\\MauiApp1\\MauiApp1.csproj",
       "projectName": "MauiApp1",
-      "projectPath": "C:\\Users\\manish.tomar\\Desktop\\MAUI\\MauiApp1\\MauiApp1.csproj",
-      "packagesPath": "C:\\Users\\manish.tomar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\manish.tomar\\Desktop\\MAUI\\MauiApp1\\obj\\",
+      "projectPath": "C:\\Users\\manis\\Downloads\\MauiApp1\\MauiApp1\\MauiApp1.csproj",
+      "packagesPath": "C:\\Users\\manis\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\manis\\Downloads\\MauiApp1\\MauiApp1\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\manish.tomar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\manis\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

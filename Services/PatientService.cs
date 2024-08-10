@@ -11,7 +11,8 @@ namespace MauiApp1.Services
         public PatientService()
         {
             // Hard-coded connection string
-            connectionString = "Server=(localdb)\\MyLocalDB;Database=ExpenseManagerDB;Trusted_Connection=True;";
+            connectionString = "Server=192.168.1.100\\SQLEXPRESS01;Database=ClinicApp;Trusted_Connection=True;TrustServerCertificate=True;";
+
         }
         public async Task AddPatientAsync(Patient patient, Visit initialVisit)
         {
