@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\manis\\Downloads\\MauiApp1\\MauiApp1\\MauiApp1.csproj": {}
+    "C:\\Users\\manis\\Desktop\\.netMAUI\\MauiApp1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\manis\\Downloads\\MauiApp1\\MauiApp1\\MauiApp1.csproj": {
+    "C:\\Users\\manis\\Desktop\\.netMAUI\\MauiApp1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\manis\\Downloads\\MauiApp1\\MauiApp1\\MauiApp1.csproj",
+        "projectUniqueName": "C:\\Users\\manis\\Desktop\\.netMAUI\\MauiApp1.csproj",
         "projectName": "MauiApp1",
-        "projectPath": "C:\\Users\\manis\\Downloads\\MauiApp1\\MauiApp1\\MauiApp1.csproj",
+        "projectPath": "C:\\Users\\manis\\Desktop\\.netMAUI\\MauiApp1.csproj",
         "packagesPath": "C:\\Users\\manis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\manis\\Downloads\\MauiApp1\\MauiApp1\\obj\\",
+        "outputPath": "C:\\Users\\manis\\Desktop\\.netMAUI\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [
@@ -38,11 +38,11 @@
             "targetAlias": "net8.0-android",
             "projectReferences": {}
           },
-          "net8.0-ios17.2": {
+          "net8.0-ios17.5": {
             "targetAlias": "net8.0-ios",
             "projectReferences": {}
           },
-          "net8.0-maccatalyst17.2": {
+          "net8.0-maccatalyst17.5": {
             "targetAlias": "net8.0-maccatalyst",
             "projectReferences": {}
           },
@@ -88,11 +88,11 @@
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[8.0.61, )"
+              "version": "[8.0.71, )"
             },
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
-              "version": "[8.0.61, )"
+              "version": "[8.0.71, )"
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
@@ -126,7 +126,7 @@
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
         },
-        "net8.0-ios17.2": {
+        "net8.0-ios17.5": {
           "targetAlias": "net8.0-ios",
           "dependencies": {
             "CommunityToolkit.Maui": {
@@ -151,11 +151,11 @@
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[8.0.61, )"
+              "version": "[8.0.71, )"
             },
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
-              "version": "[8.0.61, )"
+              "version": "[8.0.71, )"
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
@@ -189,7 +189,7 @@
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
         },
-        "net8.0-maccatalyst17.2": {
+        "net8.0-maccatalyst17.5": {
           "targetAlias": "net8.0-maccatalyst",
           "dependencies": {
             "CommunityToolkit.Maui": {
@@ -214,11 +214,11 @@
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[8.0.61, )"
+              "version": "[8.0.71, )"
             },
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
-              "version": "[8.0.61, )"
+              "version": "[8.0.71, )"
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
@@ -278,11 +278,11 @@
             },
             "Microsoft.Maui.Controls": {
               "target": "Package",
-              "version": "[8.0.61, )"
+              "version": "[8.0.71, )"
             },
             "Microsoft.Maui.Controls.Compatibility": {
               "target": "Package",
-              "version": "[8.0.61, )"
+              "version": "[8.0.71, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",

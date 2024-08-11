@@ -11,7 +11,8 @@ namespace MauiApp1.Services
         public PatientService()
         {
             // Hard-coded connection string
-            connectionString = "Server=192.168.1.100\\SQLEXPRESS01;Database=ClinicApp;Trusted_Connection=True;TrustServerCertificate=True;";
+            connectionString = "Server=MANISHTOMAR\\SQLEXPRESS01;Database=ClinicApp;Trusted_Connection=True;TrustServerCertificate=True;";
+            //connectionString = "Server=192.168.1.100\\SQLEXPRESS01;Database=ClinicApp;Trusted_Connection=True;TrustServerCertificate=True;";
             //this is AppTheme online version 
         }
         public async Task AddPatientAsync(Patient patient, Visit initialVisit)
