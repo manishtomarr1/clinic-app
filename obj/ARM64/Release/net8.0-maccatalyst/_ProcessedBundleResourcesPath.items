@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <BundleResource Include="C:\Users\manis\Desktop\.netMAUI\obj\ARM64\Release\net8.0-maccatalyst\resizetizer\r\Resources\enter.png" />
+    <BundleResource Include="C:\Users\manis\Desktop\.netMAUI\obj\ARM64\Release\net8.0-maccatalyst\resizetizer\r\Resources\appointment.png" />
+    <BundleResource Include="C:\Users\manis\Desktop\.netMAUI\obj\ARM64\Release\net8.0-maccatalyst\resizetizer\r\Resources\logout.png" />
+    <BundleResource Include="C:\Users\manis\Desktop\.netMAUI\obj\ARM64\Release\net8.0-maccatalyst\resizetizer\r\Resources\search.png" />
+    <BundleResource Include="C:\Users\manis\Desktop\.netMAUI\obj\ARM64\Release\net8.0-maccatalyst\resizetizer\r\Resources\ongoing.png" />
+    <BundleResource Include="C:\Users\manis\Desktop\.netMAUI\obj\ARM64\Release\net8.0-maccatalyst\resizetizer\r\Resources\balance.png" />
+    <BundleResource Include="C:\Users\manis\Desktop\.netMAUI\obj\ARM64\Release\net8.0-maccatalyst\resizetizer\r\Resources\thisweek.png" />
+    <BundleResource Include="C:\Users\manis\Desktop\.netMAUI\obj\ARM64\Release\net8.0-maccatalyst\resizetizer\r\Resources\addnew.png" />
+    <BundleResource Include="C:\Users\manis\Desktop\.netMAUI\obj\ARM64\Release\net8.0-maccatalyst\resizetizer\r\dotnet_bot@3x.png" />
+    <BundleResource Include="C:\Users\manis\Desktop\.netMAUI\obj\ARM64\Release\net8.0-maccatalyst\resizetizer\r\dotnet_bot@2x.png" />
+    <BundleResource Include="C:\Users\manis\Desktop\.netMAUI\obj\ARM64\Release\net8.0-maccatalyst\resizetizer\r\dotnet_bot.png" />
+    <BundleResource Include="obj\ARM64\Release\net8.0-maccatalyst\resizetizer\f\OpenSans-Regular.ttf" />
+    <BundleResource Include="obj\ARM64\Release\net8.0-maccatalyst\resizetizer\f\OpenSans-Semibold.ttf" />
+  </ItemGroup>
+</Project>

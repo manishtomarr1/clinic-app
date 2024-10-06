@@ -1,0 +1,1 @@
+C:\Users\manis\Desktop\.netMAUI\MauiApp1.csproj;arm64
